@@ -6,50 +6,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Student</title>
     <link rel="stylesheet" href="{% static 'css/add_tr.css' %}">
-  
+
 </head>
 
 <body>
     <div class="container">
-        <div class="title">Add Teacher</div>
-        <form action="#">
+        <div class="title">Add teacher</div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="user__details">
                 <div class="input__box">
                     <label for="" class="details">Name</label>
-                    <input type="text" placeholder="Enter your Name" required>
+                    <input type="text" placeholder="Enter your Name" required name="t_name">
                 </div>
                 <div class="input__box">
                     <label for="" class="details">Email</label>
-                    <input type="email" placeholder="Enter Email" required>
+                    <input type="email" placeholder="Enter Email" required name="t_email">
                 </div>
-                <div class="col-md-12 form-group">
-                    <label for="">Address</label>
-                    <textarea class="form-control mt-3" id="" rows="7">
-                    </textarea>
+
+
+                <div class="col-md-12 form-group mb-2">
+                                
+                    <label for="">Qualification</label>
+                    <select class="form-select mt-3" required name="t_qul">
+                        <option selected disabled value="">Select</option>
+                        <option value="jweb">MSc,BEd</option>
+                        <option value="sweb">MSc</option>
+                        <option value="pmanager">MSc,NET</option>
+                    </select>
+                    <div class="valid-feedback">You selected a qualification!</div>
+                    <div class="invalid-feedback">Please select a qualification!</div>
                 </div>
+
                 
                 <div class="input__box">
                     <label for="birthdaytime" class="details">DOB</label>
-                    <input type="datetime-local" id="birthdaytime" name="birthdaytime">
+                    <input type="datetime-local" id="birthdaytime" name="t_dob">
                 </div>
                 <div class="input__box">
                     <label for="" class="details">Phone Number</label>
-                    <input type="tel" placeholder="Enter Phone Number" required>
+                    <input type="tel" placeholder="Enter Phone Number" required name="t_phn">
                 </div>
+                
                 <div class="input__box">
-                    <label for="" class="details">Place</label>
-                    <input type="text" placeholder="Enter Place" required>
-                </div>
-                <div class="input__box">
-                    <label for="" class="details">Parent Name</label>
-                    <input type="text" placeholder="Enter Parent Name" required>
+                    <label for="" class="details">Experience</label>
+                    <input type="text" placeholder="" required name="t_exp" >
                 </div>
 
                 <div class="input__box">
                     <label for="" class="details">Upload Photo</label>
-                    <input type="file" id="st_img" name="st_photo">
+                    <input type="file" id="st_img" name="t_pic">
                 </div>
             </div>
             <div class="button">
